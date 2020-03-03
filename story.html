@@ -40,54 +40,57 @@
 
 
 <div id='items'>
-<p>
-<p>[A Sword] <img src="images/sword.png" alt="Sharp Sword"> + description: This sword looks sharp enough to cut through scales! Careful to not cut your fingers.)</p>
-<p>[A Rose] <img src="images/rose.png" alt="A Blue Rose"> + description: A rare beautiful blue rose. It says it can make anyone fall in love. Don’t try this on yourself!)</p>
-<p>[A Chocobo Costume] <img src="images/chocobo_costume.png" alt='Full body Chocobo Costume'> + description: This is the last fashion trend in all the lands. You can’t go wrong with this.)</p>
+<p><a href='#' onclick='selectItem("sword")'> [A Sword]</a> <img src="images/sword.png" alt="Sharp Sword"> + description: This sword looks sharp enough to cut through scales! Careful to not cut your fingers.)</p>
+<p><a href='#' onclick='selectItem("rose")'>[A Rose]</a>  <img src="images/rose.png" alt="A Blue Rose"> + description: A rare beautiful blue rose. It says it can make anyone fall in love. Don’t try this on yourself!)</p>
+<p><a href='#' onclick='selectItem("chocobo")'>[A Chocobo Costume]</a> <img src="images/chocobo_costume.png" alt='Full body Chocobo Costume'> + description: This is the last fashion trend in all the lands. You can’t go wrong with this.)</p>
 </div>
 
 
 <div id='three'>
-<p>You bought [player choice].</p>
-<p><span class='pixie'>“Oh, a [first three letters of the item], nice choice!”</span> The pixie said, <span class='pixie'>“Now let’s go to slay the dragon!”</span></p>
+<p>You bought a rose.</p>
+<p><span class='pixie'>“Oh, a ros, nice choice!”</span> The pixie said, <span class='pixie'>“Now let’s go to slay the dragon!”</span></p>
 <p>Your Chocobo also seemed happy with your choice!</p>
-<p>You rode your Chocobo towards the mountain where the dragon lives. For a reason you don’t know, your Chocobo was answering to [dog name]. The mountain was large and you know it was going to take some time to reach the top.</p>
+<p>You rode your Chocobo towards the mountain where the dragon lives. For a reason you don’t know, your Chocobo was answering to Tom. The mountain was large and you know it was going to take some time to reach the top.</p>
 <p>[Press 5 to continue]</p>
+<input id='f' placeholder='Press 5 to continue.' onkeypress='proceed(f)'>
 </div>
 
 
 <div id='four'>
 <p>You stood on the top of a mountain, facing a crystal rainbow dragon.</p>
 <p><span class='dragon'>“What arest thou name?”</span>It spoke weird English.</p>
-<p><span class='player'>“I am [player name] the dragon slayer!”</span>You replied proudly.</p>
-<p><span class='pixie'>“No, it’s [first three letters] the dragon slayer!”</span>The pixie corrected. And you just rolled your eyes</p>
+<p><span class='player'>“I am Bobalat the dragon slayer!”</span>You replied proudly.</p>
+<p><span class='pixie'>“No, it’s Bob the dragon slayer!”</span>The pixie corrected. And you just rolled your eyes.</p>
 <p>Then..</p>
 <p>[Press 2 to continue]</p>
+<input id='t' placeholder='Press 2 to continue.' onkeypress='proceed(t)'>
 </div>
 
+<div id='five' class='five'>
+<p>[Press 0 to continue]</p>
+<input id='z' placeholder='Press 0 to continue.' onkeypress='proceed(z)'>
+</div>	
 
-<div id='five'>
-[Sword]
+<div id='sword'>
 <p>You drew the sword and rushed to the dragon. You slew it in one slash. After several minutes, you started to feel your arm growing to a wing.</p>
 <p>You transformed into a new crystal rainbow dragon.</p>
 <p><span class='pixie'>“Oh great… now I have to find a new one.”</span>The pixie sighed.</p>
+</div>
 
-[Rose]
+<div id='rose'>
 <p>You took the rose out of your pocket and gave it to the dragon.</p>
 <p class=player>“You are so beautiful! I fell in love with you at first glance. I am not going to kill you.”</p>
 <p>“Will you marry me?”</p>
 <p><span class='dragon'>“Yeah.”</span> You heard its answer.</p>
 <p>The pixie cried with happiness and started to chant a wedding song.</p>
 <p>The dragon swooped you from the floor and, as a married couple, you flew to the sky.</p>
+</div>
 
-[Chocobo]
+<div id='chocobo'>
 <p>You immediately dressed up as a Chocobo. Before you could do anything, the dragon leapt towards you and swallowed you as a whole. The Chocobo you were riding ran in fear.</p>
 <p>The last thing you heard was the pixie saying:</p>
 <p class='pixie'>“Oh great… now I have to find a new one.”</p>
-
-<p>[Press 0 to continue]</p>
 </div>
-
 
 <div id='last'>
 <p>You woke up.</p>
