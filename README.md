@@ -9,4 +9,4 @@ The following files are for the interactive story assignment:
 * story.css
 * story.js
 
-Current progress: working on scene items
+Current progress: the game can be played through! But the code is messy and the css is not ready yet.
