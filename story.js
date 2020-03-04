@@ -4,8 +4,8 @@ var two = document.getElementById('two').innerHTML;
 var three = document.getElementById('three').innerHTML;
 var four = document.getElementById('four').innerHTML;
 var five = document.getElementById('five');
-var select = 'rose'
-
+var select = 'rose';
+var pet_name = 'Tom';
 
 function proceed(scene) {
 	if (scene == d) {
@@ -59,11 +59,9 @@ function proceed(scene) {
 
 function dogName() {
     var dog_name = prompt('What\'s the name of your dog?');
-    if (dog_name == null || dog_name =='') {
-        document.getElementById('opening').innerHTML = opening.replace('your dog', 'your dog Tom');
-    } else {
-        document.getElementById('opening').innerHTML = opening.replace('your dog', 'your dog '+dog_name);
-        document.getElementById('three').innerHTML = three.replace(/Tom\b/g, dog_name);
+    if (dog_name != null || dog_name !='') {
+        document.getElementById('opening').innerHTML = opening.replace(/Tom\b/,dog_name);
+        pet_name = dog_name;
     }
 }
 
@@ -83,13 +81,24 @@ function selectItem(item) {
     var first_three = item.slice(0,3);
     if (item == 'sword') {
         select = 'sword';
-        document.getElementById('three').innerHTML = three.replace('rose', item).replace(/ros\b/g,first_three);
-        five.insertBefore(document.getElementById('sword'),five.firstChild);    
+        if (pet_name !='Tom') {
+            document.getElementById('three').innerHTML = three.replace('rose', item).replace(/ros\b/g,first_three).replace(/Tom\b/g, pet_name);
+    } else{
+            document.getElementById('three').innerHTML = three.replace('rose', item).replace(/ros\b/g,first_three); 
+    }   
+        five.insertBefore(document.getElementById('sword'),five.firstChild);     
     } else if (item == 'rose') {
+        if (pet_name !='Tom') {
+            document.getElementById('three').innerHTML = three.replace(/Tom\b/g, pet_name);
+        }
         five.insertBefore(document.getElementById('rose'),five.firstChild);
     } else {
         select = 'chocobo';
-        document.getElementById('three').innerHTML = three.replace('rose', item+'costume').replace(/ros\b/g,first_three);
+        if (pet_name !='Tom') {
+            document.getElementById('three').innerHTML = three.replace('rose', item +' costume').replace(/ros\b/g,first_three).replace(/Tom\b/g, pet_name);
+    } else{
+            document.getElementById('three').innerHTML = three.replace('rose', item +' costume').replace(/ros\b/g,first_three); 
+    }   
         five.insertBefore(document.getElementById('chocobo'),five.firstChild);
     }
     document.getElementById('three').style.display = 'block';
