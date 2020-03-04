@@ -104,3 +104,7 @@ function selectItem(item) {
     document.getElementById('three').style.display = 'block';
     document.getElementById('items').style.display = 'none';
 }
+
+function restart(){
+    location.reload();
+}
