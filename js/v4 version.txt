@@ -1,0 +1,105 @@
+//Js Library for the F1 data viz project
+//Global variables
+var global_dataset = [];
+var xScale;
+var yScale;
+
+const SVG_HEIGHT = 600;
+const SVG_WIDTH = 1100;
+const LEFT_PADDING = 75;
+
+var races = ['Australia','Bahrain','China','Azerbaijan', 'Spain', 
+             'Monaco','Canada','France','Austria','Britain','Germany',
+             'Hungary', 'Belgium' ,'Italy', 'Singapore', 'Russia',
+             'Japan', 'Mexico', 'US', 'Brazil', 'Abu'];
+var drivers = ['Albon', 'Giovinazzi', 'Sainz', 'Leclerc','Ricciardo',
+               'Kvyat', 'Russell', 'Magnussen', 'Raikkonen', 'Stroll',
+               'Norris', 'Hamilton', 'Verstappen', 'Hulkenberg', 'Gasly',
+               'Kubica', 'Grosjean', 'Vettel','Perez', 'Bottas'];
+var labels = ['Alexander', 'Antonio', 'Carlos', 'Charles', 'Daniel',
+              'Daniil', 'George', 'Kevin', 'Kimi', 'Lance',
+              'Lando', 'Lewis', 'Max', 'Nico', 'Pierre',
+              'Robert', 'Romain','Sebastian', 'Sergio', 'Valtteri']
+var second = ['Albon', 'Giovinazzi', 'Sainz', 'Leclerc','Kvyat',
+             'Hulkenberg', 'Kubica', 'Grosjean', 'Perez', 'Bottas'];
+var colors = {'Albon':'#1E41FF','Verstappen':'#1E41FF', 'Giovinazzi':'#9B0000', 'Raikkonen':'#9B0000',
+              'Sainz':'#FF8700', 'Norris':'#FF8700', 'Leclerc':'#DC0000', 'Vettel':'#DC0000',
+              'Ricciardo':'#FFF500', 'Hulkenberg':'#FFF500', 'Kvyat':'#469BFF', 'Gasly':'#469BFF',
+              'Russell':'#FFFFFF', 'Kubica':'#FFFFFF', 'Magnussen':'#F0D787', 'Grosjean':'#F0D787',
+              'Stroll':'#F596C8', 'Perez':'#F596C8','Hamilton':'#00D2BE', 'Bottas':'#00D2BE'}
+
+
+d3.csv("data/f1data.csv", function(data) {
+
+    // List of groups (here I have one group per column)
+    var allGroup = ['Albon', 'Giovinazzi', 'Sainz', 'Leclerc','Ricciardo',
+               'Kvyat', 'Russell', 'Magnussen', 'Raikkonen', 'Stroll',
+               'Norris', 'Hamilton', 'Verstappen', 'Hulkenberg', 'Gasly',
+               'Kubica', 'Grosjean', 'Vettel','Perez', 'Bottas']
+
+    // Reformat the data: we need an array of arrays of {x, y} tuples
+    var dataReady = allGroup.map(function(grpName) { // .map allows to do something for each element of the list
+      return {
+        name: grpName,
+        values: data.map(function(d) {
+          return {Race: d.Race, value: +d[grpName]};
+        })
+      };
+    });
+
+    console.log(dataReady);
+
+    var x = d3.scalePoint()
+              .domain(races)
+              .range([50,1050]);
+    d3.select('svg')
+       .append('g')
+       .attr('id', 'xaxis')
+       .attr('class', 'axes')
+       .attr('transform', 'translate(0,' + SVG_HEIGHT/2 +')')
+       .call(d3.axisBottom(x)
+                   .tickPadding(20));
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+    //the domain is fixed as the rankings will only fluctuate within the range of [-20,20]
+              .domain([-20,20])
+              .range([550,50]);
+
+    d3.select('svg')
+       .append('g')
+       .attr('id', 'yaxis')
+       .attr('class', 'axes')
+       .attr('transform', 'translate(50, 0)')
+       .call(d3.axisLeft(y));
+
+    var line = d3.line()
+      .x(function(d) { return x(d.Race) })
+      .y(function(d) { return y(+d.value)})
+
+    d3.select('svg').selectAll("myLines")
+      .data(dataReady)
+      .enter()
+      .append("path")
+        .attr("d", function(d){ return line(d.values) } )
+        .attr("stroke", 'black')
+        .style("stroke-width", 4)
+        .style("fill", "none")
+
+});
+
+
+
+
+//Axis
+function add_labels() {
+    d3.select('svg')
+       .append('text')
+       .attr('transform', 'translate(1050, 280)')
+       .text('Race');
+
+    d3.select('svg')
+       .append('text')
+       .attr('transform', 'translate(20, 25)')
+       .text('Ranking-change');
+}

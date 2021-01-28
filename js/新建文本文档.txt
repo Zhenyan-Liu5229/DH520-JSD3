@@ -1,0 +1,207 @@
+//Js Library for the F1 data viz project
+//Global variables
+var global_dataset = [];
+var xScale;
+var yScale;
+
+const SVG_HEIGHT = 600;
+const SVG_WIDTH = 1100;
+const LEFT_PADDING = 75;
+
+var races = ['Australia','Bahrain','China','Azerbaijan', 'Spain', 
+             'Monaco','Canada','France','Austria','Britain','Germany',
+             'Hungary', 'Belgium' ,'Italy', 'Singapore', 'Russia',
+             'Japan', 'Mexico', 'US', 'Brazil', 'Abu'];
+var drivers = ['Albon', 'Giovinazzi', 'Sainz', 'Leclerc','Ricciardo',
+               'Kvyat', 'Russell', 'Magnussen', 'Raikkonen', 'Stroll',
+               'Norris', 'Hamilton', 'Verstappen', 'Hulkenberg', 'Gasly',
+               'Kubica', 'Grosjean', 'Vettel','Perez', 'Bottas'];
+var labels = ['Alexander', 'Antonio', 'Carlos', 'Charles', 'Daniel',
+              'Daniil', 'George', 'Kevin', 'Kimi', 'Lance',
+              'Lando', 'Lewis', 'Max', 'Nico', 'Pierre',
+              'Robert', 'Romain','Sebastian', 'Sergio', 'Valtteri']
+var second = ['Albon', 'Giovinazzi', 'Sainz', 'Leclerc','Kvyat',
+             'Hulkenberg', 'Kubica', 'Grosjean', 'Perez', 'Bottas'];
+var colors = {'Albon':'#1E41FF','Verstappen':'#1E41FF', 'Giovinazzi':'#9B0000', 'Raikkonen':'#9B0000',
+              'Sainz':'#FF8700', 'Norris':'#FF8700', 'Leclerc':'#DC0000', 'Vettel':'#DC0000',
+              'Ricciardo':'#FFF500', 'Hulkenberg':'#FFF500', 'Kvyat':'#469BFF', 'Gasly':'#469BFF',
+              'Russell':'#FFFFFF', 'Kubica':'#FFFFFF', 'Magnussen':'#F0D787', 'Grosjean':'#F0D787',
+              'Stroll':'#F596C8', 'Perez':'#F596C8','Hamilton':'#00D2BE', 'Bottas':'#00D2BE'}
+
+var tooltip = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+
+//Data loading
+load_data();
+
+function load_data() {
+    //JavaScript Promises
+    d3.csv('data/f1data.csv', clean_rows)
+    //if the promise is fulfilled
+       .then(function(dataset) {
+            global_dataset = dataset;
+            console.log(global_dataset);
+        //build scales for the dataset:
+            xScale = build_xscale(dataset);
+            yScale = build_yscale(dataset);
+        //draw the axes:
+            draw_xaxis();
+            draw_yaxis();
+        //add axis labels:
+            add_labels();
+        // draw one line for each driver in the dataset 
+            draw_lines(dataset);       
+})
+    //if the promise is rejected
+       .catch( () => console.log('Could not load file.'));
+}
+
+function clean_rows(d) {
+    rankings = {};
+    //+ will turn the string to a number
+    for (index in d3.keys(d)) {
+
+        driver = d3.keys(d)[index]; 
+        ranking = d3.values(d)[index];
+        rankings[driver] = ranking;
+};
+        // rankings[driver] = +d[drivers[index]];     
+    return rankings;
+}
+
+//Scales
+//x scale - use points for the categories
+function build_xscale() {
+    return d3.scalePoint()
+              .domain(races)
+              .range([50,1050]);
+}
+
+//y scale
+function build_yscale() {
+    return d3.scaleLinear()
+    //the domain is fixed as the rankings will only fluctuate within the range of [-20,20]
+              .domain([-20,20])
+              .range([550,50]);
+}
+
+//Axis
+function add_labels() {
+    d3.select('svg')
+       .append('text')
+       .attr('transform', 'translate(1050, 280)')
+       .text('Race');
+
+    d3.select('svg')
+       .append('text')
+       .attr('transform', 'translate(20, 25)')
+       .text('Ranking-change');
+}
+
+//function to draw the x axis 
+function draw_xaxis() {
+    var translate_string = 'translate(0,' + SVG_HEIGHT/2 +')';
+    var x_axis = d3.axisBottom()
+                   .scale(xScale)
+                   .tickPadding(20);
+
+    d3.select('svg')
+       .append('g')
+       .attr('id', 'xaxis')
+       .attr('class', 'axes')
+       .attr('transform', translate_string)
+       .call(x_axis);
+}
+
+function draw_yaxis() {
+    var translate_string = 'translate(' + LEFT_PADDING + ',0)';
+    var y_axis = d3.axisLeft()
+                .scale(yScale);
+
+    d3.select('svg')
+       .append('g')
+       .attr('id', 'yaxis')
+       .attr('class', 'axes')
+       .attr('transform', 'translate(50, 0)')
+       .call(y_axis);
+}
+
+// //draw different lines based on each driver 
+function draw_lines(dataset) {
+    for (index in drivers) {
+        var line = d3.line()
+                     .x(d => xScale(d.Race))
+                     .y(d => yScale(+d[drivers[index]]));
+        var color = colors[drivers[index]];
+
+        d3.select('svg')
+       .append('path')
+       .datum(global_dataset)
+       .attr("fill", "none")
+       .attr("stroke", color)
+       .attr("stroke-width", 4)
+       .attr('display', 'none')
+       .attr('id', drivers[index])
+       .attr("d", line);
+
+       d3.select('svg')
+            .selectAll("myDots")
+          .data(global_dataset)
+          .enter()
+            .append('g')
+            .style("fill", color)
+            .attr('class', drivers[index])
+            .attr('display', 'none')
+      // Second we need to enter in the 'values' part of this group
+          .selectAll('circle')
+          .data(dataset)
+          .enter()
+           .append('circle')
+               .attr('cx', d => xScale(d.Race))
+               .attr('cy', d => yScale(+d[drivers[index]]))
+               .attr('fill', color)
+               .attr('r', 5)
+               .attr('stoke', 'white')
+               .on("mouseover", function(d) {       
+            tooltip.transition()        
+                .duration(200)      
+                .style("opacity", .9);
+
+            tooltip.html('('+d.Race+', '+d[drivers[index]]+')')  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 10) + "px");    
+            })                  
+               .on("mouseout", function(d) {       
+            tooltip.transition()        
+                .duration(500)      
+                .style("opacity", 0); 
+            });
+
+
+       //set different style for the 'second' driver in the same team
+    if (second.includes(drivers[index])) {
+        d3.select('#'+drivers[index]).attr('stroke-dasharray',3);
+    }       
+}  
+}
+
+
+// Event Handlers
+//d3 way of adding event listeners
+d3.selectAll('input')
+  .on('click', checkbox);
+
+//the function to check which box is ticked and show related lines
+function checkbox() {
+    for (index in drivers) {
+        if (d3.select('#'+labels[index]).property('checked')) {
+            d3.select('#'+drivers[index]).attr('display', 'block');
+            d3.select('.'+drivers[index]).attr('display', 'block');
+        } else {
+            d3.select('#'+drivers[index]).attr('display', 'none');
+            d3.select('.'+drivers[index]).attr('display', 'none');
+        }
+    }
+}

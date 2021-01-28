@@ -1,0 +1,19 @@
+/* CSS for SVG*/
+
+h4 {
+	background:grey;
+	font-family: Verdana, sans-serif;
+	color:pink;
+	border:1px solid;
+
+}
+svg {
+	width:500px;
+	height:500px;
+}
+
+.greystroke{
+	stroke:grey;
+	stroke-width:1;
+}
+

@@ -1,0 +1,290 @@
+/******** IMPORT FONTS *********/
+
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica|IM+Fell+DW+Pica+SC|New+Rocker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+/*
+
+
+https://codepen.io/fazlurr/pen/qbWMRv  <---- check for shine!
+https://codepen.io/okawa-h/pen/xNaRwM < ----- RPG STYLE
+
+font-family: 'New Rocker', cursive;
+font-family: 'IM Fell DW Pica SC', serif;
+font-family: 'IM Fell DW Pica', serif;
+font-family: 'VT323', monospace;
+
+*/
+
+
+/**************************************/
+
+html {
+	background-color: #e0eaf9;
+
+}
+
+article {
+    display: none;
+}
+
+button {
+	font-family: 'Press Start 2P', cursive;
+	color: black;
+	background-color: transparent;
+	padding: 1em;
+	margin: 0 auto;
+    display: block;
+    border: solid 2px #000;
+}
+
+button:hover {
+	color: white;
+	background-color: black;
+	cursor: pointer;
+}
+
+.wrap {
+	margin: auto;
+	width: 60%;
+	padding: 10px;
+}
+
+h1 {
+	font-family: 'New Rocker', cursive;
+	color: #001F3F;
+	animation: pulse 5s infinite;
+	font-size: 50px;
+	text-align: center;
+	margin-left: 0rem;
+	text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+/*	-webkit-text-stroke-width: 0.3px;
+  -webkit-text-stroke-color: black;*/
+}
+
+h2 {
+	font-family: 'IM Fell DW Pica SC', serif;
+}
+
+h1 p {
+	font-family: 'New Rocker', cursive;
+	display: block;
+	line-height: 0.1em;
+	font-size: 70px;
+	text-align: center;
+}
+
+/*.borderstyle {
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	border-radius: 4px;
+	padding: 10em;
+}*/
+
+p {
+	font-family: 'Press Start 2P', cursive;
+	color: black;
+	font-size: 14px;
+	line-height: 2em;
+	text-align: justify;
+}
+
+.pixie {
+	/*color: #ff4d94;*/
+	text-align: right;
+	font-size: 14px;
+	line-height: 2em;
+}
+
+.narratorright {
+	color: black;
+	text-align: right;
+	font-size: 14px;
+	line-height: 2em;
+}
+
+.narratorright:hover {
+	color: black;
+	text-align: right;
+	font-size: 14px;
+	line-height: 2em;
+}
+
+.narratorleft {
+	color: black;
+	text-align: left;
+	font-size: 14px;
+	line-height: 2em;
+}
+
+.narratorleft:hover {
+	color: black;
+	text-align: left;
+	font-size: 14px;
+	line-height: 2em;
+}
+
+
+.dragon {
+	background-image: linear-gradient(to left, violet, blue, green, orange, red);
+	-webkit-background-clip: text;
+  	color: transparent;
+	text-align: right;
+	font-size: 14px;
+	line-height: 2em;
+}
+.dragon:hover {
+	background-image: linear-gradient(to left, violet, blue, green,orange, red);
+	-webkit-background-clip: text;
+  color: transparent;
+	text-align: right;
+	font-size: 14px;
+	line-height: 2em;
+}
+
+.player {
+	/*color: #404040;*/
+	text-align: left;
+	font-size: 14px;
+	line-height: 2em;
+}
+
+.pressletter {
+	font-size: 10px;
+	color: grey;
+}
+
+
+img{
+    display: none;
+    margin: 10px;
+    
+}
+
+span{
+	color: #217d2b;
+}
+
+span:hover{
+	font-size: 20px;
+}
+
+.description {
+	color: black;
+	font-size: 14px;
+}
+
+.description:hover {
+	color: black;
+	font-size: 14px;
+}
+
+span:hover + img{
+    display: block;
+    float: right;
+
+}
+
+span:hover + .description {
+	float:left;
+}
+
+
+.imgitem {
+	display: inline-block;
+	float: left;
+}
+
+.classA {
+	color: #7f088b;
+	text-decoration: none;
+}
+
+.classA:hover {
+	color: #3f08a5;
+	font-size: 20px;
+}
+
+
+
+a {
+	color: #7f088b;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #3f08a5;
+	font-size: 20px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+/*@keyframes pulse {
+  0% {
+    color: #001F3F;
+  }
+  50% {
+    color: #FF4136;
+  }
+  100% {
+    color: #001F3F;
+  }
+
+}*/
+
+.instruction {
+	text-align: center;
+	font-size: 14px;
+	margin-bottom: 5em;
+
+}
+
+
+.purple {
+	color: #7f088b;
+	text-align: right;
+	font-size: 14px;
+
+}
+
+.purple:hover {
+	color: #7f088b;
+	text-align: right;
+	font-size: 14px;
+
+
+}
+
+.green {
+	color: #217d2b;
+	text-align: right;
+	font-size: 14px;
+
+}
+
+.green:hover {
+	color: #217d2b;
+	text-align: right;
+	font-size: 14px;
+
+}
+
+.dh520 {
+	color: #217d2b;
+	text-align: center;
+	font-size: 25px;
+
+}
+
+.dh520:hover {
+	color: #33cc33;
+	text-align: center;
+	font-size: 25px;
+
+}
+
+section {
+  padding:2.5em;
+ }

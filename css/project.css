@@ -1,0 +1,214 @@
+/*CSS for DH520 projects*/
+
+/****The following applies for every page****/
+
+/*body*/
+body {
+	background-color:#e0eaf9;
+	color:black;
+	font-family:Helvetica, Georgia, sans-serif;
+	font-size:16px;
+	line-height:1.3em;
+	padding:50px;
+	text-align:left;
+}
+
+
+/*links*/
+a:link {
+	color:black;
+	text-decoration:underline;
+}
+
+a:visited {
+	color:black;
+}
+
+a:hover {
+	color:gray;
+	text-decoration:underline;
+}
+
+/*used to highlight the current page*/
+a.active {
+	color:black;
+	text-decoration: underline;
+}
+
+
+/*top menu bar*/
+.top {
+	overflow:hidden;
+	padding: 1em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-bottom: 1em;	
+	text-align:right;
+}
+
+/*links in the top menu bar*/
+.top a:link {
+    color: black;
+    text-align: center;
+    font-size: 17px;
+	display: inline-block;
+	margin-right: 1em;
+	text-decoration: none;
+}
+
+.top a:visited {
+	color:black;
+}
+
+.top a:hover {
+	text-decoration:underline;
+}
+
+.top a.active {
+	color:black;
+	text-decoration: underline;
+}
+
+
+/*main content*/
+.content {
+    padding:2.5em;
+    margin: auto;
+    width: 50%;
+}
+
+.content h1 {
+	margin:30px;
+	text-align:center;
+}
+
+.content hr{
+	border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+.button {
+	-webkit-appearance: button;
+    -moz-appearance: button;
+
+    text-decoration: none;
+    color: initial;
+	border: none;
+	background-color: black;
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+a.button:link {
+	color:white;
+	text-decoration:none;
+}
+
+a.button:visited {
+	color:white;
+}
+
+a.button:hover {
+	text-decoration: none;
+}
+
+
+/*footer*/
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    color: black;
+    line-height:1.2em;
+    text-align: center;
+}
+
+footer a:link {
+	text-decoration:none;
+}
+
+footer a:visited {
+    color:black;
+}
+
+
+/****The following applies for the data_viz page****/
+svg {
+	display:block;
+	height:600px;
+	width:1100px;
+	border:1px solid #333;
+	margin:auto;
+}
+
+div #vizbutton {
+	display:flex;
+	flex-direction:row;
+	justify-content: space-around;
+	width:1100px;
+	margin:auto;
+	border:1px solid #333;
+    min-height: 60px;
+}
+
+div #checkbox {
+	flex:50%;
+	text-align:right;
+	margin:auto;
+	padding-top: 0.7em;
+	padding-bottom:0.7em;
+	padding-right: 5%;
+}
+
+div #driver {
+	flex:50%;
+	padding-top:1.3em;
+	padding-right:1.3em;
+	text-align:right;
+}
+
+div input {
+	margin-right:40px;
+}
+
+/*the style for the content on this particular page*/
+.viz_content {
+    padding:2.5em;
+    margin: auto;
+    width: 80%;
+}
+
+.viz_content h1 {
+	margin:30px;
+	text-align:center;
+}
+
+.viz_content hr{
+	border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.axes {
+	font-size:12px;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 100px;					
+    height: 30px;					
+    padding: 2px;				
+    font: 14px sans-serif;		
+    pointer-events: none;			
+}
