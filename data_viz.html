@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title> Data Visualization </title>
+    <link rel='stylesheet' type='text/css' href='css/project.css'>
+    <script src='https://d3js.org/d3.v4.js'></script>
+</head>
+
+<body>   
+    <!--Top navigation bar-->
+    <nav class='top'>
+        <a href='index.html'>Home</a>
+        <a href='interactive_story.html'>Interactive Story</a>
+        <a href='data_viz.html' class='active'>Data Visualization</a>
+        <a href='about.html'>About</a>
+        <a href='contact.html'>Contact</a> 
+    </nav>
+
+    <div class='viz_content'>
+    <h1>Data Viz: 2019 F1 Drivers' Performance</h1>
+    <br>
+    
+    <div>
+        <h2>What Is It?</h2>
+        <p>This D3 data visualization is about the performances of all the Formula one drivers in 2019.
+        <p>While it's easy to view the drivers' standings on <a href = 'https://www.formula1.com/en/results.html/2019/races/1000/australia/race-result.html'>the F1 official website</a>, 
+           it's hard to get a sense of how each driver performed in each race.
+           So I decided to look at how the standings had changed for each driver in each race and the visualization turns out to be fun.</p>
+        <p>DISCLAIMER: I am a huge fan of Max Verstappen.</p>
+        <hr>
+
+        <h2>How to Read/Play?</h2>
+        <ul>
+            <li>Use <strong>the checkboxes</strong> at the top to select the driver(s) you want to look at.</li>
+            <li>The X axis represents each race, and the Y axis shows the change of the standing.</li>
+            <li>The change of standing is calculated by [Starting Grid] - [Race Result] and all the data is from <a href = 'https://www.formula1.com/en/results.html/2019/races/1000/australia/race-result.html'>the official website</a>.</li>
+            <li><strong>Hover</strong> over each data point to see the tooltips.</li>
+            <li>Each driver is represented by <a href = 'https://www.reddit.com/r/formula1/comments/arxt0r/f1_2019_team_colors_hex_codes/'>the official color of their team</a>.</li>
+        </ul>
+        <br>
+
+    </div> 
+    
+    <div id='vizbutton'>
+        <!--Div for the checkboxes-->
+        <div id='checkbox'>
+            <label for='Alexander'>Alexander Albon</label>
+                <input type='checkbox' id='Alexander' name='Alexander Albon' value='true'>
+            <label for='Antonio'>Antonio Giovinazzi</label>
+                <input type='checkbox' id='Antonio' name='Antonio Giovinazzi' value='true'>
+            <label for='Carlos'>Carlos Sainz</label>
+                <input type='checkbox' id='Carlos' name='Carlos Sainz' value='true'>
+            <label for='Charles'>Charles Leclerc</label>
+                <input type='checkbox' id='Charles' name='Charles Leclerc' value='true'>
+            <label for='Daniel'>Daniel Ricciardo</label>
+                <input type='checkbox' id='Daniel' name='Daniel Ricciardo' value='true'><br>
+            <label for='Daniil'>Daniil Kvyat</label>
+                <input type='checkbox' id='Daniil' name='Daniil Kvyat' value='true'>
+            <label for='George'>George Russell</label>
+                <input type='checkbox' id='George' name='George Russell' value='true'>
+            <label for='Kevin'>Kevin Magnussen</label>
+                <input type='checkbox' id='Kevin' name='Kevin Magnussen' value='true'>
+            <label for='Kimi'>Kimi Raikkonen</label>
+                <input type='checkbox' id='Kimi' name='Kimi Raikkonen' value='true'>
+            <label for='Lance'>Lance Stroll</label>
+                <input type='checkbox' id='Lance' name='Lance Stroll' value='true'><br>
+            <label for='Lando'>Lando Norris</label>
+                <input type='checkbox' id='Lando' name='Lando Norris' value='true'>
+            <label for='Lewis'>Lewis Hamilton</label>
+                <input type='checkbox' id='Lewis' name='Lewis Hamilton' value='true'>
+            <label for='Max'>Max Verstappen</label>
+                <input type='checkbox' id='Max' name='Max Verstappen' value='true'>
+            <label for='Nico'>Nico Hulkenberg</label>
+                <input type='checkbox' id='Nico' name='Nico Hulkenberg' value='true'>
+            <label for='Pierre'>Pierre Gasly</label>
+                <input type='checkbox' id='Pierre' name='Pierre Gasly' value='true'><br>
+            <label for='Robert'>Robert Kubica</label>
+                <input type='checkbox' id='Robert' name='Robert Kubica' value='true'> 
+            <label for='Romain'>Romain Grosjean</label>
+                <input type='checkbox' id='Romain' name='Romain Grosjean' value='true'>
+            <label for='Sebastian'>Sebastian Vettel</label>
+                <input type='checkbox' id='Sebastian' name='Sebastian Vettel' value='true'>
+            <label for='Sergio'>Sergio Perez</label>
+                <input type='checkbox' id='Sergio' name='Sergio Perez' value='true'> 
+            <label for='Valtteri'>Valtteri Bottas</label>
+                <input type='checkbox' id='Valtteri' name='Valtteri Bottas' value='true'><br>                                   
+        </div>  
+    </div> 
+    
+    <svg></svg>     
+
+    </div>
+    <footer>
+        Created by: <a href='https://zhenyan.cloudaccess.host/' target='_blank'>Zhenyan Liu</a>
+    </footer>      
+
+<script src='js/dataviz.js'></script>
+</body>
+</html>

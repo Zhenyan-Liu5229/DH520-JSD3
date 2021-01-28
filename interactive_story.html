@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title> Dragon Slayer: Quest</title>
+    <link rel='stylesheet' type='text/css' href='css/project.css'>
+    <link rel=stylesheet type=text/css href='css/story.css'>
+    <link rel=stylesheet type=text/css href='css/diamond.css'>
+</head>
+
+<body>
+    <!--Top navigation bar-->
+    <nav class='top'>
+        <a href='index.html'>Home</a>
+        <a href='interactive_story.html' class='active'>Interactive Story</a>
+        <a href='data_viz.html'>Data Visualization</a>
+        <a href='about.html'>About</a>
+        <a href='contact.html'>Contact</a> 
+    </nav>
+
+
+    <section>
+        <div class='wrap borderstyle' id='start'>
+            <br>
+        <h1 class="shine"> Dragon Slayer: Quest</h1>
+        <p class="instruction">INSTRUCTIONS <br><br> Click on <span class="purple">Purple text</span> to customize your story/proceed. <br>Hover over <span class="green">Green</span> to see the images.</p>
+        <button id='play'>START</button>
+        </div>
+    </section>
+
+    <article>
+        <h2>Story Contents</h2>
+        <div class="wrap borderstyle" id='opening'>
+        <p>You heard the alarm clock. You tried to turn it off but it fell onto the ground. As you tried to reach it, you felt a wet lick on your face. </p>
+        <p>You thought it was <a id='yourdogname'>your dog Tom</a>.</p>
+        <p>You struggled to open your eyes and you saw a small feather animal that you recognized as a <span>Chocobo.</span><img src="images/chocobo.png" alt="Yellow Chocobo"> But there are no Chocobos in real life… or are there?</p>
+        <p class="pressletter">[Enter D to continue]</p>
+        <input id='d' placeholder='Enter D to continue.'>
+        </div>
+
+        <div class="wrap borderstyle" id='one'>
+        <p class='pixie'>“Hey! Hurry up! We need to go to the market! Aren't you Bob the Dragon Slayer?” </p>
+        <p>A pink <span>pixie</span><img src="images/pixie.png" alt="Pink Pixie" height="400"> emerged out of the Chocobo’s head.</p>  
+        <p class='player'> “Wait? What did you call me again?” </p>
+        <p class='pixie'>“Bob, right? Bob the Dragon Slayer! That's what everybody says!”</p>
+        <p class='player'>“No, my name is <a id='yourname'>Bobalat</a>.”</p>
+        <p class="pressletter">[Enter H to continue]</p>
+        <input id='h' placeholder='Enter H to continue.'>
+        </div>
+
+
+
+        <div class="wrap borderstyle" id='two'>
+        <p>You didn’t know why but you decided to follow the pixie to the market. </p>
+        <p>You started to feel that you were not in the real world. Maybe it’s because there was a pixie and a Chocobo… or because you had a health bar over your head. </p>
+        <p class='pixie'>“So what would you like to buy, Bob?”<span class="narratorright"> The pixie asked.</span></p>
+        <p class='player'>“No, my name is Bobalat, not Bob”.<span class="narratorleft"> You were irritated.</span></p>
+        <p class='pixie'>“I know but I can only read the first three letters!”<span class="narratorright"> It insisted,</span> “please hurry! What do you want to buy?” </p>
+        <p>You looked at your pocket and you only had enough money to buy one thing. Whomever you were in this world, you were not a rich person.</p>
+        <p>You have to <a id='i'>make a choice</a>.</p>
+        </div>
+
+
+        <div class="wrap borderstyle" id='items'>
+        <p><a id='select_sword'> <span class="classA">[A Sword]</span><img src="images/sword.png" alt="Sharp Sword" width="250"></a><span class="description"> This sword looks sharp enough to cut through scales! Careful to not cut your fingers.</span></p>
+        <p><a id='select_rose'><span class="classA">[A Rose]</span><img src="images/rose.png" alt="A Raibow Rose" height="250"></a> A rare beautiful rainbow rose from a land far away. It says it can make anyone fall in love. Don’t try this on yourself!</p>
+        <p><a id='select_choco'><span class="classA">[A Chocobo Costume]</span><img src="images/chocobo_costume.png" alt='Full body Chocobo Costume' height="350"></a>  This is the last fashion trend in all the lands. You can’t go wrong with this.</p>
+        </div>
+
+
+        <div class="wrap" id='three'>
+        <p>You bought a rose.</p>
+        <p class='pixie'>“Oh, a ros, nice choice!”<span class="narratorright"> The pixie said, </span>“Now let’s go to slay the dragon!”</p>
+        <p>Your Chocobo also seemed happy with your choice!</p>
+        <p>You rode your Chocobo towards the mountain where the dragon lives. For a reason you don’t know, your Chocobo was answering to Tom. The mountain was large and you know it was going to take some time to reach the top.</p>
+        <p class="pressletter">[Enter 5 to continue]</p>
+        <input id='f' placeholder='Enter 5 to continue.'>
+        </div>
+
+
+        <div class="wrap borderstyle" id='four'>
+        <p>You stood on the top of a mountain, facing a <span class="classA">Crystal Rainbow Dragon.</span><img src="images/Rainbow_Dragon_of_the_Sky.png" alt="A Raibow Rose" height="450"></p>
+        <p class='dragon'>“What arest thou name?”<span class="narratorright"> It spoke weird English.</span></p>
+        <p class='player'>“I am Bobalat the dragon slayer!”<span class="narratorleft"> You replied proudly.</span></p>
+        <p class='pixie'>“No, it’s Bob the dragon slayer!”<span class="narratorright"> The pixie corrected. And you just rolled your eyes.</span></p>
+        <p>Then..</p>
+        <p class="pressletter">[Enter 2 to continue]</p>
+        <input id='t' placeholder='Enter 2 to continue.'>
+        </div>
+
+        <div id='five' class='five'>
+        <p class="pressletter wrap">[Enter 0 to continue]<br>
+        <input id='z' placeholder='Enter 0 to continue.'></p>
+        </div>  
+
+        <div class="wrap borderstyle" id='sword'>
+        <p>You drew the sword and rushed to the dragon. You slew it in one slash. After several minutes, you started to feel your arm growing to a wing.</p>
+        <p>You transformed into a new crystal rainbow dragon.</p>
+        <p class='pixie'>“Oh great… now I have to find a new one.”<span class="narratorright"> The pixie sighed.</span></p>
+        </div>
+
+        <div class="wrap borderstyle" id='rose'>
+        <p>You took the rose out of your pocket and gave it to the dragon.</p>
+        <p class=player>“You are so beautiful! I fell in love with you at first glance. I am not going to kill you.”</p>
+        <p>Before you know, words come out of your mouth...</p>
+        <p class="player">“Will you marry me?”</p>
+        <p class='dragon'>“Yeah.... Why not?”<span class="narratorright"> You heard its answer.</span></p>
+        <p>The pixie cried with happiness and started to chant a wedding song.</p>
+        <p>The dragon swooped you from the floor and, as a married couple, you flew to the sky.</p>
+        </div>
+
+        <div class="wrap borderstyle" id='chocobo'>
+        <p>You immediately dressed up as a Chocobo. Before you could do anything, the dragon leapt towards you and swallowed you as a whole. The Chocobo you were riding ran in fear.</p>
+        <p>The last thing you heard was the pixie saying:</p>
+        <p class='pixie'>“Oh great… now I have to find a new one.”</p>
+        </div>
+
+        <div class="wrap borderstyle" id='last'>
+        <p>You woke up.</p>
+        <p>There was a word on the screen in front of you.</p>
+        <p class="dh520"><strong>DH520</strong></p>
+        <p>You were late to the class. </p>
+
+        <p>FIN.</p>
+        <button id='replay'>REPLAY</button>
+        </div>
+    </article>
+
+    <footer>
+        Created by: <a href='https://zhenyan.cloudaccess.host/' target='_blank'>Zhenyan Liu</a>
+    </footer> 
+
+    <script src='js/story.js'></script>  
+
+</body>
+
+</html>

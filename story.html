@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Dragon Slayer:Quest</title>
+    <link rel=stylesheet type=text/css href='css/story.css'>
+</head>
+
+<body>
+<div id='opening'>
+<p>You heard the alarm clock. You tried to turn it off but it fell onto the ground. As you tried to reach it, you felt a wet lick on your face. </p>
+<p>You thought it was <a href='#' onclick='dogName()'>your dog Tom.</a></p>
+ <p>You struggled to open your eyes and you saw a small feather animal that you recognized as a Chocobo <img src="images/chocobo.png" alt="Yellow Chocobo"> But there are no Chocobos in real life… or are there?</p>
+<p>[Press D to continue]</p>
+<input id='d' placeholder='Press D to continue.' onkeypress='proceed(d)'>
+</div>
+
+
+<div id='one'>
+<p class='pixie'>“Hey! Hurry up! We need to go to the market! Aren't you Bob the Dragon Slayer?” </p>
+<p>A pink pixie emerged out of the Chocobo’s head.</p>  <img src="images/pixie.png" alt="Pink Pixie">
+<p class='player'> “Wait? What did you call me again?” </p>
+<p class='pixie'>“Bob, right? Bob the Dragon Slayer! That's what everybody says!”</p>
+<p class='player'>“No, my name is <a href='#' onclick='playerName()'>Bobalat</a>.”</p>
+<input id='h' placeholder='Press H to continue.' onkeypress='proceed(h)'>
+</div>
+
+
+
+<div id='two'>
+<p>You didn’t know why but you decided to follow the pixie to the market. </p>
+<p>You started to feel that you were not in the real world. Maybe it’s because there was a pixie and a Chocobo… or because you had a health bar over your head. </p>
+<p><span class='pixie'>“So what would you like to buy, Bob?”</span>The pixie asked.</p>
+<p><span class='player'>“No, my name is Bobalat, not Bob”.</span>You were irritated.</p>
+<p><span class='pixie'>“I know but I can only read the first three letters!”</span>It insisted, <span class='pixie'>“please hurry! What do you want to buy?”</span> </p>
+<p>You looked at your pocket and you only had enough money to buy one thing. Whomever you were in this world, you were not a rich person.</p>
+<p>You have to <a id='i' href='#' onclick='proceed(i)'>make a choice</a>.</p>
+</div>
+
+
+<div id='items'>
+<p><a href='#' onclick='selectItem("sword")'> [A Sword]</a> <img src="images/sword.png" alt="Sharp Sword"> + description: This sword looks sharp enough to cut through scales! Careful to not cut your fingers.)</p>
+<p><a href='#' onclick='selectItem("rose")'>[A Rose]</a>  <img src="images/rose.png" alt="A Blue Rose"> + description: A rare beautiful blue rose. It says it can make anyone fall in love. Don’t try this on yourself!)</p>
+<p><a href='#' onclick='selectItem("chocobo")'>[A Chocobo Costume]</a> <img src="images/chocobo_costume.png" alt='Full body Chocobo Costume'> + description: This is the last fashion trend in all the lands. You can’t go wrong with this.)</p>
+</div>
+
+
+<div id='three'>
+<p>You bought a rose.</p>
+<p><span class='pixie'>“Oh, a ros, nice choice!”</span> The pixie said, <span class='pixie'>“Now let’s go to slay the dragon!”</span></p>
+<p>Your Chocobo also seemed happy with your choice!</p>
+<p>You rode your Chocobo towards the mountain where the dragon lives. For a reason you don’t know, your Chocobo was answering to Tom. The mountain was large and you know it was going to take some time to reach the top.</p>
+<p>[Press 5 to continue]</p>
+<input id='f' placeholder='Press 5 to continue.' onkeypress='proceed(f)'>
+</div>
+
+
+<div id='four'>
+<p>You stood on the top of a mountain, facing a crystal rainbow dragon.</p>
+<p><span class='dragon'>“What arest thou name?”</span>It spoke weird English.</p>
+<p><span class='player'>“I am Bobalat the dragon slayer!”</span>You replied proudly.</p>
+<p><span class='pixie'>“No, it’s Bob the dragon slayer!”</span>The pixie corrected. And you just rolled your eyes.</p>
+<p>Then..</p>
+<p>[Press 2 to continue]</p>
+<input id='t' placeholder='Press 2 to continue.' onkeypress='proceed(t)'>
+</div>
+
+<div id='five' class='five'>
+<p>[Press 0 to continue]</p>
+<input id='z' placeholder='Press 0 to continue.' onkeypress='proceed(z)'>
+</div>	
+
+<div id='sword'>
+<p>You drew the sword and rushed to the dragon. You slew it in one slash. After several minutes, you started to feel your arm growing to a wing.</p>
+<p>You transformed into a new crystal rainbow dragon.</p>
+<p><span class='pixie'>“Oh great… now I have to find a new one.”</span>The pixie sighed.</p>
+</div>
+
+<div id='rose'>
+<p>You took the rose out of your pocket and gave it to the dragon.</p>
+<p class=player>“You are so beautiful! I fell in love with you at first glance. I am not going to kill you.”</p>
+<p>“Will you marry me?”</p>
+<p><span class='dragon'>“Yeah.”</span> You heard its answer.</p>
+<p>The pixie cried with happiness and started to chant a wedding song.</p>
+<p>The dragon swooped you from the floor and, as a married couple, you flew to the sky.</p>
+</div>
+
+<div id='chocobo'>
+<p>You immediately dressed up as a Chocobo. Before you could do anything, the dragon leapt towards you and swallowed you as a whole. The Chocobo you were riding ran in fear.</p>
+<p>The last thing you heard was the pixie saying:</p>
+<p class='pixie'>“Oh great… now I have to find a new one.”</p>
+</div>
+
+<div id='last'>
+<p>You woke up.</p>
+<p>There was a word on the screen in front of you.</p>
+<p><strong>DH520</strong> (picture of ECLass maybe?)</p>
+<p>You were late to the class. </p>
+
+<p>FIN.</p>
+<button onclick='restart()'>Wanna start again?</button>
+</div>
+
+<script src='js/story.js'></script>
+</body>
+
+</html>
